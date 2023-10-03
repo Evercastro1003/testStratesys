@@ -3,6 +3,7 @@ import ToDoList from '../screens/ToDoListScreen';
 import CreateTeask from '../screens/CreateTeaskScreen';
 import { TaskModel } from '../domain/types/TaksModel';
 import TeaskDetail from '../screens/TaskDetailScreen';
+import { Button } from 'react-native';
 
 type RootStackParam = {
     ToDo: any
@@ -22,11 +23,35 @@ const HomeStack = () => {
             </Stack.Group>
             <Stack.Group screenOptions={{ presentation: 'modal', headerStyle: { backgroundColor: '#272534' } }}>
                 <Stack.Screen name="CreateTask" component={CreateTeask} options={
-                    { title: "Create Task", headerTintColor: '#fff' }
-                }/>
+                    ({ route, navigation }) => (
+                        {
+                            title: "Create Task",
+                            headerTintColor: '#fff',
+                            headerLeft: () => (
+                                <Button
+                                    title="Go Back"
+                                    onPress={() => {
+                                        navigation.goBack(); // Navegar hacia atrás
+                                    }}
+                                />
+                            ),
+                        })
+                } />
                 <Stack.Screen name="TaskDetail" component={TeaskDetail} options={
-                    { title: "Task Detail", headerTintColor: '#fff' }
-                }/>
+                    ({ route, navigation }) => (
+                        {
+                            title: `Task Detail - ${route.params.task.title}`,
+                            headerTintColor: '#fff',
+                            headerLeft: () => (
+                                <Button
+                                    title="Go Back"
+                                    onPress={() => {
+                                        navigation.goBack(); // Navegar hacia atrás
+                                    }}
+                                />
+                            ),
+                        })
+                } />
             </Stack.Group>
         </Stack.Navigator>
     )

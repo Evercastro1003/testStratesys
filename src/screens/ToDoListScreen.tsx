@@ -6,7 +6,7 @@ import ButtonAddTask from '../components/ButtonAddTask'
 import SearchTask from '../components/SearchTask'
 import FilterTab from '../components/FilterTab'
 import { colors } from "../utils/constants"
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import OrderBy from '../components/OrderBy'
 
 const ToDoList: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("")
@@ -65,11 +65,10 @@ const ToDoList: React.FC = () => {
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
         />
-        <TouchableOpacity onPress={toggleOrderBy} style={styles.orderButton}>
-          <Text style={styles.orderButtonText}>
-             {orderBy === "asc" ? <MaterialCommunityIcons name="sort-clock-ascending-outline" size={24} color="#fff" /> : <MaterialCommunityIcons name="sort-clock-descending-outline" size={24} color="#fff" />}
-          </Text>
-        </TouchableOpacity>
+        <OrderBy
+          orderBy={orderBy}
+          toggleOrderBy={toggleOrderBy}
+        />
       </View>
       <FilterTab filterData={filterTab} filterBy={filterBy} />
       <ListTasks tasks={filteredData} />
@@ -83,17 +82,6 @@ export default ToDoList
 const styles = StyleSheet.create({
   container: {
     flex: 1
-  },
-  orderButton: {
-    backgroundColor: "#7e64ff", // Color del botón de orden
-    borderRadius: 8,
-    padding: 12,
-    margin: 10,
-    alignItems: 'center',
-  },
-  orderButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
   },
   SearchOrderContainer: {
     alignSelf: "center",
