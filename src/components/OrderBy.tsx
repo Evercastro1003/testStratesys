@@ -5,7 +5,7 @@ import { OrderByProps } from '../domain/interfaces/OrderByProps';
 
 const OrderBy: React.FC<OrderByProps> = ({ orderBy, toggleOrderBy }) => {
     return (
-        <TouchableOpacity onPress={toggleOrderBy} style={styles.orderButton}>
+        <TouchableOpacity testID="orderBy" onPress={toggleOrderBy} style={styles.orderButton}>
             <Text style={styles.orderButtonText}>
                 {orderBy === "asc" ? <MaterialCommunityIcons name="sort-clock-ascending-outline" size={24} color="#fff" /> : <MaterialCommunityIcons name="sort-clock-descending-outline" size={24} color="#fff" />}
             </Text>

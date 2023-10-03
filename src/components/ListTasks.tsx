@@ -38,6 +38,7 @@ const ListTasks: React.FC<TasksProps> = ({ tasks }) => {
         <Feather name="edit" size={24} color="white" />
       </TouchableOpacity>
       <TouchableOpacity
+      testID="delete-button-1"
         style={[styles.backRightBtn, styles.backRightBtnRight]}
         onPress={() => deleteTask(data.item.id)}
       >
@@ -51,7 +52,9 @@ const ListTasks: React.FC<TasksProps> = ({ tasks }) => {
   };
 
   return (
-    <View>
+    <View
+    testID='listTasks'
+    >
       <SwipeListView
         data={tasks}
         renderItem={renderItem}

@@ -14,6 +14,7 @@ const ButtonAddTask = () => {
         <TouchableOpacity
             onPress={handleCreateTask}
             style={styles.button}
+            testID="button-add-task"
         >
             <Feather name="plus-square" size={30} color="white" />
         </TouchableOpacity>
