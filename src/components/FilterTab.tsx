@@ -1,14 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet, } from 'react-native'
 import React from 'react'
-
-export interface FilterTabProps {
-    filterData: {
-        key: string,
-        title: string,
-        MyFunction: () => void
-    }[]
-    filterBy: string | undefined
-}
+import { FilterTabProps } from '../domain/interfaces/FilterTabProps';
 
 const FilterTab: React.FC<FilterTabProps> = ({ filterData, filterBy }) => {
 
@@ -16,7 +8,7 @@ const FilterTab: React.FC<FilterTabProps> = ({ filterData, filterBy }) => {
         <View style={styles.container}>
             {
                 filterData.map(({ key, title, MyFunction }, index) => {
-                    
+
                     const getColor = () => {
                         if (filterBy === key) {
                             return key === "completed" ? "#4CAF50" : key === "notCopleted" ? "#CCC" : "#3c1f7b";
@@ -27,7 +19,7 @@ const FilterTab: React.FC<FilterTabProps> = ({ filterData, filterBy }) => {
                         <TouchableOpacity
                             key={index}
                             onPress={MyFunction}
-                            style={[styles.button, { 
+                            style={[styles.button, {
                                 backgroundColor: getColor()
                             }]}
                         >

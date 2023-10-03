@@ -1,8 +1,9 @@
 import { Alert, Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { useTaskContext } from '../context/TaskContext';
+import { ButtonAddTaskProps } from '../domain/interfaces/ButtonAddTaskProps';
 
-const CreateTeask = ({ navigation }) => {
+const CreateTeask: React.FC<ButtonAddTaskProps> = ({ navigation }) => {
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [completed, setCompleted] = useState<boolean>(false);

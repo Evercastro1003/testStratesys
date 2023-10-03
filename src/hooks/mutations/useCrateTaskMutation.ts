@@ -1,10 +1,11 @@
 import { useMutation, useQueryClient } from "react-query";
+import { endpoint, queryKeys } from "../../services/endpoint";
 
 const useCreateTaskMutation = () => {
     const queryClient = useQueryClient();
 
     const createTask = async (newTask) => {
-        const response = await fetch('http://localhost:3000/todo', {
+        const response = await fetch(endpoint.todos, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -13,7 +14,7 @@ const useCreateTaskMutation = () => {
         });
 
         const newData = response.json();
-        queryClient.invalidateQueries('tasks');
+        queryClient.invalidateQueries(queryKeys.tasks);
 
         return newData
 

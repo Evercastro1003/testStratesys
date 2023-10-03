@@ -4,30 +4,20 @@ import Task from './Task'
 import { TaskModel } from '../domain/types/TaksModel'
 import { SwipeListView } from 'react-native-swipe-list-view'
 import { useTaskContext } from '../context/TaskContext'
-import { RouteProp, useNavigation } from '@react-navigation/native'
-import { RootStackParamList } from '../domain/types/RootStackParamList'
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { useNavigation } from '@react-navigation/native'
 import { Feather } from '@expo/vector-icons';
-import { colors } from "../utils/constants"
+import { TasksProps } from '../domain/interfaces/TasksProps'
+import { NavigationTaskProps } from '../domain/interfaces/NavigationTaskProps'
 
-interface TaskProps {
-  tasks: TaskModel[]
-}
-
-type Props = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'TaskDetail'>;
-  route: RouteProp<RootStackParamList, 'TaskDetail'>;
-};
-
-const ListTasks: React.FC<TaskProps> = ({ tasks }) => {
-  const navigation = useNavigation<Props['navigation']>()
+const ListTasks: React.FC<TasksProps> = ({ tasks }) => {
+  const navigation = useNavigation<NavigationTaskProps['navigation']>()
   const { completeTask, deleteTask } = useTaskContext()
   
 
   const renderItem = (data: { item: TaskModel }) => (
     <TouchableHighlight
       onPress={() => completeTask(data.item)}
-      style={[styles.rowFront, { backgroundColor: colors.backgroundSecundary }]}
+      style={[styles.rowFront, { backgroundColor: "#7e64ff" }]}
       underlayColor={'#AAA'}
     >
         <Task

@@ -1,16 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../domain/types/RootStackParamList';
 import { Feather } from '@expo/vector-icons';
-
-type Props = {
-    navigation: NativeStackNavigationProp<RootStackParamList, 'CreateTask'>;
-};
+import { ButtonAddTaskProps } from '../domain/interfaces/ButtonAddTaskProps';
 
 const ButtonAddTask = () => {
-    const navigation = useNavigation<Props['navigation']>()
+    const navigation = useNavigation<ButtonAddTaskProps['navigation']>()
 
     const handleCreateTask = () => {
         navigation.navigate("CreateTask")

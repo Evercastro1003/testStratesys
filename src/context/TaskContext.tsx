@@ -5,21 +5,8 @@ import useCreateTaskMutation from '../hooks/mutations/useCrateTaskMutation';
 import useUpdateTaskMutation from '../hooks/mutations/useUpdateTaskMutation';
 import { useQueryClient } from 'react-query';
 import useDeleteTaskMutation from '../hooks/mutations/useDeleteTaskMutation';
+import { TaskContextType } from '../domain/interfaces/TaskContextType';
 
-// Define un tipo para el contexto
-interface TaskContextType {
-  tasks: {
-    data: TaskModel[],
-    isLoading: boolean
-  };
-  addTask: (task: TaskModel) => void;
-  deleteTask: (taskId: number) => void;
-  searchData: (title: string) => void;
-  completeTask: (task: TaskModel) => void;
-  updateTask: (task: TaskModel)  => void;
-}
-
-// Crea el contexto y proporciona un tipo inicial
 const TaskContext = createContext<TaskContextType | undefined>(undefined);
 
 export const useTaskContext = () => {

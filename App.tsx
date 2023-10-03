@@ -7,7 +7,6 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 const queryClient = new QueryClient()
 
 const App: React.FC = () => {
-
   return (
     <QueryClientProvider client={queryClient}>
       <WrapperApp />
@@ -16,7 +15,6 @@ const App: React.FC = () => {
 }
 
 const WrapperApp = () => {
-  
   return (
     <NavigationContainer>
       <TaskProvider>

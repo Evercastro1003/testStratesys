@@ -1,24 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { TaskModel } from '../domain/types/TaksModel'
-import { RouteProp, useNavigation } from '@react-navigation/native'
-import { RootStackParamList } from '../domain/types/RootStackParamList'
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { Feather } from '@expo/vector-icons';
-import { colors } from "../utils/constants"
-import { calcularTiempoTranscurrido } from '../utils/functions'
-
-interface TaskProps {
-  task: TaskModel
-}
-
-type Props = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'TaskDetail'>;
-  route: RouteProp<RootStackParamList, 'TaskDetail'>;
-};
+import { calcularTiempoTranscurrido } from '../utils/calcularTiempoTranscurrido'
+import { TaskProps } from '../domain/interfaces/TaskProps'
 
 const Task: React.FC<TaskProps> = ({ task }) => {
-  const navigation = useNavigation<Props['navigation']>()
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleAccordion = () => {
@@ -30,9 +16,9 @@ const Task: React.FC<TaskProps> = ({ task }) => {
       <View style={styles.container}>
         <View style={styles.container}>
           <Text>{task.completed ? <Feather name="check-square" size={24} color="#4CAF50" /> : <Feather name="square" size={24} color="white" />}</Text>
-          <Text style={[styles.text, { textDecorationLine: task.completed ? 'line-through' : 'none', color: colors.textPrimary }]}>{task.title}</Text>
-          <Text style={[styles.text, { color: colors.textPrimary }]}>|</Text>
-          <Text style={[styles.text, { color: colors.textPrimary }]}>{task.completed ? calcularTiempoTranscurrido(task.updatedDate) : calcularTiempoTranscurrido(task.createdDate)}</Text>
+          <Text style={[styles.text, { textDecorationLine: task.completed ? 'line-through' : 'none', color: "#fff" }]}>{task.title}</Text>
+          <Text style={[styles.text, { color: "#fff" }]}>|</Text>
+          <Text style={[styles.text, { color: "#fff" }]}>{task.completed ? calcularTiempoTranscurrido(task.updatedDate) : calcularTiempoTranscurrido(task.createdDate)}</Text>
         </View>
         <TouchableOpacity onPress={toggleAccordion}>
           <View >

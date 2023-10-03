@@ -1,10 +1,11 @@
 import { useMutation, useQueryClient } from "react-query";
+import { endpoint, queryKeys } from "../../services/endpoint";
 
 const useDeleteTaskMutation = () => {
     const queryClient = useQueryClient();
 
     const deleteTask = async (taskId) => {
-        const response = await fetch(`http://localhost:3000/todo/${taskId}`, {
+        const response = await fetch(`${endpoint.todos}/${taskId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -12,7 +13,7 @@ const useDeleteTaskMutation = () => {
         });
 
         const newData = response.json();
-        queryClient.invalidateQueries('tasks');
+        queryClient.invalidateQueries(queryKeys.tasks);
 
         return newData
 

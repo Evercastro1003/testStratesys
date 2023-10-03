@@ -5,7 +5,6 @@ import { useTaskContext } from '../context/TaskContext'
 import ButtonAddTask from '../components/ButtonAddTask'
 import SearchTask from '../components/SearchTask'
 import FilterTab from '../components/FilterTab'
-import { colors } from "../utils/constants"
 import OrderBy from '../components/OrderBy'
 
 const ToDoList: React.FC = () => {
@@ -59,7 +58,7 @@ const ToDoList: React.FC = () => {
   ]
 
   return (
-    <View style={[styles.container, { backgroundColor: colors.backgroundPrimary }]}>
+    <View style={[styles.container, { backgroundColor: "#272534" }]}>
       <View style={styles.SearchOrderContainer}>
         <SearchTask
           searchTerm={searchTerm}

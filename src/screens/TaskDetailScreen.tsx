@@ -1,8 +1,9 @@
 import { StyleSheet, Text, TextInput, View, Switch, TouchableOpacity, Alert } from 'react-native'
 import React, { useState } from 'react'
 import { useTaskContext } from '../context/TaskContext'
+import { NavigationTaskProps } from '../domain/interfaces/NavigationTaskProps'
 
-const TaskDetail = ({ route, navigation }) => {
+const TaskDetail: React.FC<NavigationTaskProps> = ({ route, navigation }) => {
   const { task } = route.params
 
   const [title, setTitle] = useState(task.title)
