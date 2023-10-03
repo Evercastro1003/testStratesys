@@ -52,9 +52,9 @@
       "id": 0.3309283556175122,
       "title": "Tarea 7",
       "description": "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.",
-      "completed": false,
+      "completed": true,
       "createdDate": "2023-10-03T05:41:12.439Z",
-      "updatedDate": "2023-10-03T07:11:58.826Z"
+      "updatedDate": "2023-10-03T14:45:56.322Z"
     },
     {
       "id": 0.3309283556175124,
@@ -68,25 +68,17 @@
       "id": 0.3309283556175126,
       "title": "Tarea 9",
       "description": "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.",
-      "completed": false,
-      "createdDate": "2023-10-03T05:45:12.439Z",
-      "updatedDate": "2023-10-03T07:12:00.328Z"
-    },
-    {
-      "id": 0.3309283556175128,
-      "title": "Tarea 10",
-      "description": "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto",
-      "completed": false,
-      "createdDate": "2023-10-03T05:50:12.439Z",
-      "updatedDate": "2023-10-03T08:01:39.540Z"
-    },
-    {
-      "id": 0.8203102747509557,
-      "title": "Tarea 11",
-      "description": "Algo",
       "completed": true,
-      "createdDate": "2023-10-03T08:02:02.103Z",
-      "updatedDate": "2023-10-03T08:02:32.659Z"
+      "createdDate": "2023-10-03T05:45:12.439Z",
+      "updatedDate": "2023-10-03T15:41:02.031Z"
+    },
+    {
+      "id": 0.6382300782902027,
+      "title": "Tarea 10",
+      "description": "Algo aqui",
+      "completed": false,
+      "createdDate": "2023-10-03T14:48:08.039Z",
+      "updatedDate": "2023-10-03T14:48:08.039Z"
     }
   ]
 }

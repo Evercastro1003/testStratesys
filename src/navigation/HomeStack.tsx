@@ -31,8 +31,9 @@ const HomeStack = () => {
                                 <Button
                                     title="Go Back"
                                     onPress={() => {
-                                        navigation.goBack()
+                                        navigation.goBack(); // Navegar hacia atrás
                                     }}
+                                    color="transparent"
                                 />
                             ),
                         })
@@ -48,6 +49,7 @@ const HomeStack = () => {
                                     onPress={() => {
                                         navigation.goBack(); // Navegar hacia atrás
                                     }}
+                                    color="transparent"
                                 />
                             ),
                         })
