@@ -31,7 +31,6 @@ export const useTaskContext = () => {
 };
 
 export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  //const [tasks, setTasks] = useState<TaskModel[]>([]);
   const queryClient = useQueryClient();
 
   const tasks = useTasksQuery()
@@ -41,22 +40,20 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const daleteTaskMutation = useDeleteTaskMutation()
 
   const addTask = async (newTask: TaskModel) => {
-    const task = {...newTask, createdDate: new Date()}
-    const createdTask = await createTaskMutation.mutateAsync(task)
+    
+    const createdTask = await createTaskMutation.mutateAsync(newTask)
     
     console.log(createdTask)
   };
 
   const deleteTask = async(taskId: number) => {
-    //const updatedTasks = tasks.filter((task) => task.id !== taskId);
     await daleteTaskMutation.mutateAsync(taskId)
-    //setTasks(updatedTasks);
   };
 
   const completeTask = async (task: TaskModel) => {
   
     try {
-      const updatedTask = { ...task, completed: !task.completed }
+      const updatedTask = { ...task, completed: !task.completed, updatedDate: new Date() }
       const updated = await updatedTaskMutation.mutateAsync(updatedTask);
       queryClient.invalidateQueries('tasks')
     }
@@ -66,10 +63,9 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }
 
   const updateTask = async (task: TaskModel) => {
-  
     try {
-      //const updatedTask = { ...task, completed: !task.completed }
-      const updated = await updatedTaskMutation.mutateAsync(task);
+      const updatedTask = {...task, updatedDate: new Date()}
+      const updated = await updatedTaskMutation.mutateAsync(updatedTask);
       queryClient.invalidateQueries('tasks')
       console.log(updated)
     }

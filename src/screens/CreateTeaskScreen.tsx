@@ -1,4 +1,4 @@
-import { Alert, Button, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Alert, Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { useTaskContext } from '../context/TaskContext';
 
@@ -10,13 +10,8 @@ const CreateTeask = ({ navigation }) => {
   const { addTask } = useTaskContext()
 
   const handleCreateItem = () => {
-    if(title === "") {
-      Alert.alert("Warning", "This input title is empty")
-      return
-    }
-
-    if(description === ""){
-      Alert.alert("Warning", `This input description is empty`)
+    if (!title || !description) {
+      Alert.alert("Warning", "This fields cannot be left empty")
       return
     }
 
@@ -25,6 +20,8 @@ const CreateTeask = ({ navigation }) => {
       title,
       description,
       completed,
+      createdDate: new Date().toISOString(),
+      updatedDate: new Date().toISOString(),
     };
 
     addTask(newItem);
@@ -32,32 +29,33 @@ const CreateTeask = ({ navigation }) => {
     // Limpia el formulario después de crear el elemento
     setTitle('');
     setDescription('');
-    setCompleted(false);
     Alert.alert("Congratulation!", "Your task was created with successfully!")
     navigation.goBack()
   };
 
   return (
-    <View>
-      <Text>Create Task</Text>
-      <View style={styles.container}>
-        <TextInput
-          style={styles.input}
-          placeholder="Título"
-          value={title}
-          onChangeText={(text) => setTitle(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Descripción"
-          value={description}
-          onChangeText={(text) => setDescription(text)}
-        />
-        <Button
-          title="Crear Elemento"
-          onPress={handleCreateItem}
-        />
-      </View>
+    <View style={styles.container}>
+      <TextInput
+        style={styles.input}
+        placeholder="Título"
+        value={title}
+        onChangeText={(text) => setTitle(text)}
+        placeholderTextColor="#999"
+      />
+      <TextInput
+        style={[styles.input, styles.textArea]}
+        placeholder="Descripción"
+        value={description}
+        onChangeText={(text) => setDescription(text)}
+        placeholderTextColor="#999"
+        multiline
+      />
+      <TouchableOpacity
+        onPress={handleCreateItem}
+        style={styles.button}
+      >
+        <Text style={styles.text}>Add</Text>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -66,12 +64,41 @@ export default CreateTeask
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 16,
+    backgroundColor: '#272534',
   },
   input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
+    backgroundColor: "#ccc0fb",
+    borderRadius: 8,
+    padding: 12,
     marginBottom: 12,
-    padding: 8,
+    color: "#fff",
+    fontSize: 16
   },
+  textArea: {
+    height: 100,
+  },
+  button: {
+    backgroundColor: '#7e64ff',
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    marginTop: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 10,
+    borderRadius: 10,
+    fontSize: 16,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+  },
+  text: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#fff"
+  }
 })

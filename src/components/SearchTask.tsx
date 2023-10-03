@@ -25,6 +25,7 @@ export default SearchTask
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    width: "85%"
   },
   input: {
     height: 50,

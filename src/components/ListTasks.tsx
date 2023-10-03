@@ -22,6 +22,7 @@ type Props = {
 const ListTasks: React.FC<TaskProps> = ({ tasks }) => {
   const navigation = useNavigation<Props['navigation']>()
   const { completeTask, deleteTask } = useTaskContext()
+  
 
   const renderItem = (data: { item: TaskModel }) => (
     <TouchableHighlight
@@ -29,9 +30,9 @@ const ListTasks: React.FC<TaskProps> = ({ tasks }) => {
       style={[styles.rowFront, { backgroundColor: colors.backgroundSecundary }]}
       underlayColor={'#AAA'}
     >
-      <Task
-        task={data.item}
-      />
+        <Task
+          task={data.item}
+        />
     </TouchableHighlight>
   );
 
@@ -131,13 +132,13 @@ const styles = StyleSheet.create({
   },
   backRightBtnLeft: {
     marginTop: 5,
-    backgroundColor: 'blue',
+    backgroundColor: '#007BFF',
     right: 80,
   },
   backRightBtnRight: {
     marginTop: 5,
     marginLeft: 5,
-    backgroundColor: 'red',
+    backgroundColor: '#FF0000',
     right: 0,
   },
 })

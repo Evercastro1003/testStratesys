@@ -16,11 +16,17 @@ const HomeStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Group screenOptions={{ headerStyle: { backgroundColor: '#272534' } }}>
-                <Stack.Screen name="ToDo" component={ToDoList} options={{ title: "To Do" }} />
-                <Stack.Screen name="TaskDetail" component={TeaskDetail} />
+                <Stack.Screen name="ToDo" component={ToDoList} options={
+                    { title: "To Do", headerTintColor: '#fff' }
+                } />
             </Stack.Group>
-            <Stack.Group screenOptions={{ presentation: 'modal' }}>
-                <Stack.Screen name="CreateTask" component={CreateTeask} />
+            <Stack.Group screenOptions={{ presentation: 'modal', headerStyle: { backgroundColor: '#272534' } }}>
+                <Stack.Screen name="CreateTask" component={CreateTeask} options={
+                    { title: "Create Task", headerTintColor: '#fff' }
+                }/>
+                <Stack.Screen name="TaskDetail" component={TeaskDetail} options={
+                    { title: "Task Detail", headerTintColor: '#fff' }
+                }/>
             </Stack.Group>
         </Stack.Navigator>
     )
