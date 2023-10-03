@@ -16,11 +16,11 @@ o
 
 Inicia el ervidor con el siguiente comando  en la terminal dentro de la carpeta principal:
 
-```json-server --watch db.json```
+```json-server --watch db.json --host=<TU-IP-LOCAL>```
 
 Nota: de ser necesario copie su IP local, vaya al archivo `endpoint.ts` que se encuentra en la ruta: `src/services/endpoint.ts` y reemplazar el valor de la constante 
 
-```const serverUrl = "http://<tu-ip>:3000" cambie ´localhost´por su IP privada.```
+```const serverUrl = "http://<TU-IP-LOCAL>:3000" cambie ´localhost´por su IP privada.```
 
 ## Instruccion de ejecución del proyecto React Native usando Expo
 
@@ -54,6 +54,8 @@ o
 
 ```pm run test or yarn test```
 
+## Compilacion de la aplicación Android Apk
+[APK](/assets/apk/application-test-stratesys.apk)
 
 ## Capturas de pantalla de la aplicación en ejecución en IOS
 

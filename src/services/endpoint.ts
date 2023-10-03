@@ -1,4 +1,4 @@
-const serverUrl = "http://192.168.1.38:3000" 
+const serverUrl = "https://api-json-task-production.up.railway.app" 
 
 const todos = "/todos"
 

@@ -15,16 +15,24 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.evercastro.testStratesys"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#3c1f7b"
-      }
+      },
+      "package": "com.evercastro.testStratesys"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "51155285-95cf-4614-9efd-3102a3b1ccf6"
+      }
+    },
+    "owner": "evercastro"
   }
 }

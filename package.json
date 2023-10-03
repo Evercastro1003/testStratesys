@@ -7,7 +7,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "jest"
+    "test": "jest",
+    "apk": "eas build --profile preview --platform android",
+    "ipa": "eas build --profile preview --platform ios"
   },
   "dependencies": {
     "@react-navigation/native": "^6.1.8",
