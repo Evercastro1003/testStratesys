@@ -54,6 +54,10 @@ o
 
 ```pm run test or yarn test```
 
+## Video funcionando la app
+
+/assets/Simulator Screen Recording - iPhone 15 Pro Max - 2023-10-04 at 20.45.12.mp4
+
 ## Compilacion de la aplicación Android Apk
 [APK](/assets/apk/application-test-stratesys.apk)
 
