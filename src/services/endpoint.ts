@@ -1,4 +1,4 @@
-const serverUrl = "https://jsonplaceholder.typicode.com" 
+const serverUrl = "https://api-json-task-production.up.railway.app" 
 
 const todos = "/todos"
 
