@@ -12,7 +12,7 @@ import { NavigationTaskProps } from '../domain/interfaces/NavigationTaskProps'
 const ListTasks: React.FC<TasksProps> = ({ tasks }) => {
   const navigation = useNavigation<NavigationTaskProps['navigation']>()
   const { completeTask, deleteTask } = useTaskContext()
-  
+
 
   const renderItem = (data: { item: TaskModel }) => (
     <TouchableHighlight
@@ -20,9 +20,9 @@ const ListTasks: React.FC<TasksProps> = ({ tasks }) => {
       style={[styles.rowFront, { backgroundColor: "#7e64ff" }]}
       underlayColor={'#AAA'}
     >
-        <Task
-          task={data.item}
-        />
+      <Task
+        task={data.item}
+      />
     </TouchableHighlight>
   );
 
@@ -38,7 +38,7 @@ const ListTasks: React.FC<TasksProps> = ({ tasks }) => {
         <Feather name="edit" size={24} color="white" />
       </TouchableOpacity>
       <TouchableOpacity
-      testID="delete-button-1"
+        testID="delete-button-1"
         style={[styles.backRightBtn, styles.backRightBtnRight]}
         onPress={() => deleteTask(data.item.id)}
       >
@@ -53,9 +53,16 @@ const ListTasks: React.FC<TasksProps> = ({ tasks }) => {
 
   return (
     <View
-    testID='listTasks'
+      testID='listTasks'
+      style={{
+        flex: 1
+      }}
     >
       <SwipeListView
+        style={{
+          flex: 1,
+          marginBottom: 20,
+        }}
         data={tasks}
         renderItem={renderItem}
         renderHiddenItem={renderHiddenItem}
